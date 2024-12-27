@@ -445,6 +445,12 @@ def update_config(ver: str, release_date: str, config_file_path: str):
     with open(config_file_path, 'w') as file:
         file.write(content)
 
+        # Re-read and print the updated content
+        with open(config_file_path, 'r') as file:
+            updated_content = file.read()
+            print("Updated file content:")
+            print(updated_content)
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Fetch release data from GitHub and extract PR info")
