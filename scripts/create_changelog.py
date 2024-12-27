@@ -442,14 +442,17 @@ def update_config(ver: str, release_date: str, config_file_path: str):
     content = re.sub(r'version:\s*".*?"', f'version: "{ver}"', content)
     content = re.sub(r'version_src:\s*".*?"', f'version_src: "{ver}"', content)
 
+    print("file content:")
+    print(content)
+
     with open(config_file_path, 'w') as file:
         file.write(content)
 
-        # Re-read and print the updated content
-        with open(config_file_path, 'r') as file:
-            updated_content = file.read()
-            print("Updated file content:")
-            print(updated_content)
+    # Re-read and print the updated content
+    with open(config_file_path, 'r') as file:
+        updated_content = file.read()
+        print("Updated file content:")
+        print(updated_content)
 
 
 if __name__ == '__main__':
